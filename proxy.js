@@ -89,6 +89,7 @@ server.on('upgrade', function (req, c, head) {
 	});
 
 	s.connect(host_port[1], host_port[0], function() {
+		s = this;
 		c.removeListener('error', sError);
 		c.write("HTTP/" + req.httpVersion +
 		    " 200 Connection established\r\n\r\n");
